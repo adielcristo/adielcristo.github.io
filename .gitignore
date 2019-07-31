@@ -1,0 +1,11 @@
+### local ###
+
+.deploy/local/.env
+.idea
+
+.DS_Store
+Thumbs.db
+
+### application ###
+
+.env.local
