@@ -1,6 +1,5 @@
 FROM composer:latest AS composer
-
-FROM php:fpm-alpine
+FROM php:fpm-alpine AS php
 
 MAINTAINER Adiel Cristo <adielcristo@gmail.com>
 

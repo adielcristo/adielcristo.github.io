@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Exit on error
-set -e
+# Do not exit on error
+set +e
 set -o pipefail
 
 # Check requirements and install environment

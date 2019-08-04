@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-alias behat="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
-    exec php vendor/bin/behat $@"
-
 alias composer="docker-compose \
     --project-directory ${COMPOSE_PROJECT_DIR} \
     exec php composer $@"
@@ -29,3 +25,11 @@ alias docker-up="docker-compose \
 alias php="docker-compose \
     --project-directory ${COMPOSE_PROJECT_DIR} \
     exec php php $@"
+
+alias sculpin="docker-compose \
+    --project-directory ${COMPOSE_PROJECT_DIR} \
+    exec php vendor/bin/sculpin $@"
+
+alias yarn="docker-compose \
+    --project-directory ${COMPOSE_PROJECT_DIR} \
+    exec node yarn $@"

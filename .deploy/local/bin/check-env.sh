@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Exit on error
-set -e
-set -o pipefail
-
 # Check .env file
 
 if [[ -f "${COMPOSE_PROJECT_DIR}/.env" ]]; then
@@ -31,15 +27,18 @@ declare -a env_vars=(
     "COMPOSE_PROJECT_NAME"
     "DEV_HOST_PORT_HTTP"
     "DEV_HOST_PORT_HTTPS"
-    "PHP_RUN_GROUP"
-    "PHP_RUN_USER"
+    "DEV_GID"
+    "DEV_UID"
+    "DEV_YARN_CACHE_DIR"
+    "DEV_YARN_DIR"
 
     # application
     "APP_BASE_URL"
 
     # composer
     "COMPOSER_AUTH"
-    "COMPOSER_DIR"
+    "COMPOSER_MEMORY_LIMIT"
+    "DEV_COMPOSER_DIR"
 )
 
 env_checks=true
