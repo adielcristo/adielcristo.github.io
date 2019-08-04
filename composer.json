@@ -1,0 +1,17 @@
+{
+    "name": "adielcristo/blog",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Adiel Cristo",
+            "email": "adielcristo@gmail.com",
+            "homepage": "https://adielcristo.com"
+        }
+    ],
+    "require": {
+        "sculpin/sculpin": "^3.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}
