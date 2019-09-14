@@ -38,12 +38,8 @@ RUN apk del --purge \
     docker-php-source delete && \
     rm -rf /tmp/* /var/cache/apk/*
 
-# Install Xdebug
-RUN yes | pecl install xdebug && \
-    docker-php-ext-enable xdebug
-
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_HOME /composer
-ENV PATH $PATH:/composer/vendor/bin
+ENV PATH ${PATH}:/composer/vendor/bin
 ENV COMPOSER_ALLOW_SUPERUSER 0

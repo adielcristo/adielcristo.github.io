@@ -1,35 +1,15 @@
 #!/usr/bin/env bash
 
-alias composer="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
+alias composer="dc \
     exec php composer $@"
 
-alias docker-build="docker-compose \
+alias dc="docker-compose \
     --project-directory ${COMPOSE_PROJECT_DIR} \
-    build $@"
+    --file ${COMPOSE_PROJECT_DIR}/docker-compose.yaml \
+    $@"
 
-alias docker-down="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
-    down $@"
-
-alias docker-logs="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
-    logs $@"
-
-alias docker-restart="docker-down; docker-up"
-
-alias docker-up="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
-    up -d $@"
-
-alias php="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
-    exec php php $@"
-
-alias sculpin="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
+alias sculpin="dc \
     exec php vendor/bin/sculpin $@"
 
-alias yarn="docker-compose \
-    --project-directory ${COMPOSE_PROJECT_DIR} \
+alias yarn="dc \
     exec node yarn $@"

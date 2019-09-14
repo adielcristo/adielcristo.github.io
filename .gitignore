@@ -1,7 +1,8 @@
 ### local ###
 
-.deploy/local/.env
 .idea
+.bashrc
+.deploy/local/.env
 
 .DS_Store
 Thumbs.db

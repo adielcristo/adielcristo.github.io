@@ -8,6 +8,10 @@
 
 ## Development
 
-* [Docker](.deploy/local/README.md)
+* [Docker][doc-docker]
+* [Local][doc-local]
+* [Sculpin][doc-sculpin]
 
-* [Sculpin](README_SCULPIN.md)
+[doc-docker]: .deploy/docker/README.md
+[doc-local]: .deploy/local/README.md
+[doc-sculpin]: README_SCULPIN.md
