@@ -3,6 +3,7 @@ layout: default
 title: About
 
 ---
-# About the Author or Blog
+# Adiel Cristo
 
-Here is a little information about the author or the blog.
+Desenvolvedor de software interessado em tecnologia e programação,
+particularmente em PHP, DevOps e Cloud e open-source.

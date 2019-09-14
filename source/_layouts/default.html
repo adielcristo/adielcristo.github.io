@@ -40,7 +40,9 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ site.url }}/">{{ site.title }}</a>
+                    <a class="navbar-brand" href="{{ site.url }}/">
+                        <img src="{{ site.url }}/build/img/signature.png" alt="{{ site.title }}" />
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -61,18 +63,12 @@
                     {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
                 </div>
                 <div class="col-sm-4 sidebar">
-                    <div class="card bg-light">
-                        <div class="card-header">{{ site.title }}</div>
-                        <div class="card-body">
-                            {% if site.subtitle %}<small>{{ site.subtitle }}</small>{% endif %}
-                        </div>
-                    </div>
                     <div class="card bg-light sidebar-nav">
                         <div class="card-header">Links</div>
                         <div class="card-body">
                             <ul class="nav flex-column">
-                                <li class="nav-item"><a class="nav-link" href="http://sculpin.io">sculpin.io</a></li>
-                                <li class="nav-item"><a class="nav-link" href="http://twitter.com/getsculpin">@getsculpin</a></li>
+                                <li class="nav-item"><a class="nav-link" href="http://phpba.com.br/">PHPBA</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/phpwomenbr">PHPWomenBR</a></li>
                             </ul>
                         </div>
                     </div>
