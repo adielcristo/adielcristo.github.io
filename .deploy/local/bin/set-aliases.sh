@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+alias behat="dc \
+    exec php vendor/bin/behat $@"
+
 alias composer="dc \
     exec php composer $@"
 

@@ -4,11 +4,11 @@ Feature: posts
   I need to be able to open the posts section
 
   Scenario: Open posts page
-    When I am on "/blog/pt/"
+    Given I am on "/blog/pt/"
     Then I should see "Home" in the "title" element
 
   Scenario Outline: Open published posts
-    When I am on "/blog/pt/<date>/<post>"
+    Given I am on "/blog/pt/<date>/<post>"
     Then the response status code should be 200
 
       Examples:

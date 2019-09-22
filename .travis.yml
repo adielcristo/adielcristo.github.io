@@ -39,7 +39,6 @@ install:
         vendor/bin/sculpin serve
         --port=80
         --no-ansi
-        --no-dev
         --no-interaction
 
 script:

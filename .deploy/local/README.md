@@ -62,6 +62,7 @@
 
 2. The following aliases will be created:
 
+    * behat
     * composer
     * dc
     * sculpin
@@ -72,6 +73,8 @@
 1. Build the docker images:
 
     ```
+    docker build -t ${DEV_DOCKER_IMAGE_PHP}:base .deploy/docker/base
+
     dc build --parallel
     ```
 
