@@ -35,16 +35,21 @@ install:
     - >
         vendor/bin/sculpin generate
         --env=prod
+    # Run web server on background
     - >
         vendor/bin/sculpin serve
         --port=8080
         --no-ansi
-        --no-interaction
+        --no-interaction &
 
 script:
     - >
         vendor/bin/behat
         --config=behat.yml.dist
+
+after_script:
+    # Stop web server
+    - kill $!
 
 deploy:
     provider:      pages
