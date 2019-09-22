@@ -1,22 +1,21 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-// directory where compiled assets will be stored
-    .setOutputPath('source/build/')
+    // directory where compiled assets will be stored
+    .setOutputPath('source/assets/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath('/assets')
     .copyFiles({
-        from: './source/assets/icons'
+        from: './source/_layouts/default/assets/img',
+        to: 'img/[path][name].[ext]',
+        pattern: /\.(png|jpg|jpeg)$/
     })
-    .addEntry('app', './source/assets/js/app.js')
-
+    .addEntry('app', './source/_layouts/default/assets/js/app.js')
     .disableSingleRuntimeChunk()
-
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
-
     .enableSassLoader()
 ;
 

@@ -17,6 +17,6 @@ Thumbs.db
 /app/logs/*
 /output_*/
 /node_modules/
-/source/build/
+/source/assets/
 s3.conf
 /vendor/

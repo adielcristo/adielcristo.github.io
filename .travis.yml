@@ -18,7 +18,10 @@ php:
     - '7.3'
 
 install:
-    - yarn install
+    - >
+        yarn install
+        --production
+    - yarn encore production
     - >
         composer install
         --prefer-dist

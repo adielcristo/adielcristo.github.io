@@ -56,9 +56,7 @@
 
     ```
     COMPOSE_PROJECT_DIR=${PWD}/.deploy/local
-    ```
 
-    ```
     . .deploy/local/bin/install-env.sh
     ```
 
