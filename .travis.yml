@@ -35,6 +35,7 @@ install:
     # Run web server on background
     - >
         vendor/bin/sculpin serve
+        --env=${APP_ENV}
         --port=8080
         --no-ansi
         --no-interaction &
@@ -47,7 +48,11 @@ script:
 after_script:
     # Stop web server
     - kill $!
+
+after_success:
     - rm -rf source/assets
+    - rm -rf output_${APP_ENV}
+    - rm -rf vendor
     - >
         yarn install
         --production
