@@ -1,9 +1,7 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
-    // directory where compiled assets will be stored
     .setOutputPath('source/assets/')
-    // public path used by the web server to access the output path
     .setPublicPath('/assets')
     .copyFiles({
         from: './source/_layouts/default/assets/img',

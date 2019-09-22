@@ -2,6 +2,6 @@ require('../css/app.scss');
 
 require('jquery')
 require('bootstrap')
-var hljs = require('highlightjs')
+const hljs = require('highlightjs');
 
 hljs.initHighlightingOnLoad();
