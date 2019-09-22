@@ -20,21 +20,18 @@ cache:
 install:
     - >
         yarn install
-        --production
     - >
         yarn encore
-        production
+        dev
     - >
         composer install
         --prefer-dist
         --no-ansi
-        --no-dev
         --no-interaction
         --no-progress
-        --optimize-autoloader
     - >
         vendor/bin/sculpin generate
-        --env=prod
+        --env=${APP_ENV}
     # Run web server on background
     - >
         vendor/bin/sculpin serve
@@ -50,6 +47,24 @@ script:
 after_script:
     # Stop web server
     - kill $!
+    - rm -rf source/assets
+    - >
+        yarn install
+        --production
+    - >
+        yarn encore
+        production
+    - >
+        composer install
+        --prefer-dist
+        --no-ansi
+        --no-dev
+        --no-interaction
+        --no-progress
+        --optimize-autoloader
+    - >
+        vendor/bin/sculpin generate
+        --env=prod
 
 deploy:
     provider:      pages
