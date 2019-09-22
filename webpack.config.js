@@ -6,7 +6,7 @@ Encore
     .copyFiles({
         from: './source/_layouts/default/assets/img',
         to: 'img/[path][name].[ext]',
-        pattern: /\.(png|jpg|jpeg)$/
+        pattern: /\.(png|jpg|jpeg|ico)$/
     })
     .addEntry('app', './source/_layouts/default/assets/js/app.js')
     .disableSingleRuntimeChunk()
