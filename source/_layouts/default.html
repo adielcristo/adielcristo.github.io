@@ -1,18 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head lang="en">
         <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
         <meta charset="utf-8">
-        <meta name="theme-color" content="#ffffff">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         {% block head_meta %}
             <meta name="robots" content="noindex, follow">
         {% endblock %}
-        <link rel="stylesheet" href="{{ site.url }}/assets/app.css">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <link rel="stylesheet" href="{{ site.url }}/assets/app.css">
         <link rel="apple-touch-startup-image" href="{{ site.url }}/assets/img/jackson/2048x2048.png">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+
         <link rel="shortcut icon" sizes="76x76" href="{{ site.url }}/assets/img/jackson/76x76.png">
         <link rel="shortcut icon" sizes="120x120" href="{{ site.url }}/assets/img/jackson/120x120.png">
         <link rel="shortcut icon" sizes="128x128" href="{{ site.url }}/assets/img/jackson/128x128.png">
