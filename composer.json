@@ -9,9 +9,34 @@
         }
     ],
     "require": {
+        "php": "^7.2",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
         "sculpin/sculpin": "^3.0"
     },
     "require-dev": {
+        "behat/behat": "^3.5",
+        "behat/mink": "dev-master",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-goutte-driver": "^1.2",
         "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "AdielCristo\\Blog\\": "source/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AdielCristo\\Blog\\Tests\\": "tests/",
+            "AdielCristo\\Blog\\Tests\\Context\\": "tests/features/bootstrap/"
+        }
     }
 }

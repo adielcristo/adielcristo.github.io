@@ -9,7 +9,6 @@ Thumbs.db
 
 ### application ###
 
-.env.local
 /.sculpin/
 /app/cache/*
 /app/config/sculpin_kernel_*.yml
@@ -18,5 +17,7 @@ Thumbs.db
 /output_*/
 /node_modules/
 /source/assets/
-s3.conf
 /vendor/
+.env.local
+behat.yml
+s3.conf

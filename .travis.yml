@@ -4,6 +4,9 @@ os:   linux
 dist: bionic
 sudo: required
 
+php:
+    - '7.3'
+
 branches:
     only:
         - develop
@@ -14,14 +17,13 @@ cache:
         - ${HOME}/.composer/cache/files
         - node_modules
 
-php:
-    - '7.3'
-
 install:
     - >
         yarn install
         --production
-    - yarn encore production
+    - >
+        yarn encore
+        production
     - >
         composer install
         --prefer-dist
@@ -30,15 +32,27 @@ install:
         --no-interaction
         --no-progress
         --optimize-autoloader
+    - >
+        vendor/bin/sculpin generate
+        --env=prod
+    - >
+        vendor/bin/sculpin serve
+        --port=80
+        --no-ansi
+        --no-dev
+        --no-interaction
 
 script:
-    - vendor/bin/sculpin generate --env=prod
+    - >
+        vendor/bin/behat
+        --config=behat.yml.dist
+        --env=prod
 
 deploy:
-    provider:       pages
-    skip_cleanup:   true
-    github_token:   ${GITHUB_TOKEN}
-    local_dir:      output_prod
-    target_branch:  master
+    provider:      pages
+    skip_cleanup:  true
+    github_token:  ${GITHUB_TOKEN}
+    local_dir:     output_prod
+    target_branch: master
     on:
         branch: develop
