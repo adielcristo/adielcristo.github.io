@@ -1,7 +1,6 @@
 ---
 title: Ressuscitando o Blog!
-tags: php-src
-categories: PHP
+language: pt-br
 ---
 
 Depois de <del>alguns</del> muitos anos, finalmente vou tirar a poeira do blog

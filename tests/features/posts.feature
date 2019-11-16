@@ -4,13 +4,14 @@ Feature: posts
   I need to be able to open the posts section
 
   Scenario: Open posts page
-    Given I am on "/blog/pt/"
+    Given I am on "/blog/pt-br/"
     Then I should see "Home" in the "title" element
 
   Scenario Outline: Open published posts
-    Given I am on "/blog/pt/<date>/<post>"
+    Given I am on "/blog/pt-br/<date>/<post>"
     Then the response status code should be 200
 
       Examples:
-        | date        | post                 |
-        |  2019/09/21 | ressuscitando-o-blog |
+        | date     | post                                        |
+        |  2019/09 | ressuscitando-o-blog                        |
+        |  2019/11 | 2019-11-compilando-o-php-a-partir-do-pacote |
