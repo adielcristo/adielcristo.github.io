@@ -12,6 +12,9 @@ forno em duas semanas.
 Neste post iremos instalar a versão [php-7.4.0RC6][package-news], lançada na
 última quinta-feira.
 
+_**Nota:** As instruções a seguir foram executadas no ambiente Linux. Ajustes
+podem ser necessários para adaptá-las ao seu ambiente._
+
 ### Instale as Dependências
 
 Primeiro instale as dependências necessárias. Algumas podem já estar instaladas:
