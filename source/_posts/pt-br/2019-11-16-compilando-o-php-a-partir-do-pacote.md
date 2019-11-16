@@ -20,17 +20,15 @@ podem ser necessários para adaptá-las ao seu ambiente._
 Primeiro instale as dependências necessárias. Algumas podem já estar instaladas:
 
 <pre>
-    <code class="bash">
-    sudo apt-get install \
-        autoconf \
-        bison \
-        build-essential \
-        git \
-        libsqlite3-dev \
-        libxml2-dev \
-        pkg-config \
-        re2c
-    </code>
+<code class="bash">sudo apt-get install \
+    autoconf \
+    bison \
+    build-essential \
+    git \
+    libsqlite3-dev \
+    libxml2-dev \
+    pkg-config \
+    re2c</code>
 </pre>
 
 ### Baixe o Pacote da Versão
@@ -38,10 +36,8 @@ Primeiro instale as dependências necessárias. Algumas podem já estar instalad
 Você pode baixar o pacote diretamente:
 
 <pre>
-    <code class="bash">
-    curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz \
-        -o php-7.4.0RC6.tar.gz
-    </code>
+<code class="bash">curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz \
+    -o php-7.4.0RC6.tar.gz</code>
 </pre>
 
 ### Verifique a Integridade do Pacote
@@ -50,35 +46,27 @@ Se quiser verificar a integridade do pacote você pode baixar as chaves GPG dos
 mantenedores dos pacotes do PHP [nesta página][gpg-keys]:
 
 <pre>
-    <code class="bash">
-    curl https://www.php.net/distributions/php-keyring.gpg \
-        -o php-keyring.gpg
-    </code>
+<code class="bash">curl https://www.php.net/distributions/php-keyring.gpg \
+    -o php-keyring.gpg</code>
 </pre>
 
 Para importar as chaves, execute:
 
 <pre>
-    <code class="bash">
-    gpg --import php-keyring.gpg
-    </code>
+<code class="bash">gpg --import php-keyring.gpg</code>
 </pre>
 
 Baixe também o arquivo ASC, usado para checar a integridade do pacote: 
 
 <pre>
-    <code class="bash">
-    curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz.asc \
-        -o php-7.4.0RC6.tar.gz.asc
-    </code>
+<code class="bash">curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz.asc \
+    -o php-7.4.0RC6.tar.gz.asc</code>
 </pre>
 
 E finalmente, para verificar a integridade do pacote:
 
 <pre>
-    <code class="bash">
-    gpg --verify php-7.4.0RC6.tar.gz.asc php-7.4.0RC6.tar.gz
-    </code>
+<code class="bash">gpg --verify php-7.4.0RC6.tar.gz.asc php-7.4.0RC6.tar.gz</code>
 </pre>
 
 ### Extraia o Pacote
@@ -86,9 +74,7 @@ E finalmente, para verificar a integridade do pacote:
 Extraia o conteúdo do pacote:
 
 <pre>
-    <code class="bash">
-    tar -zxvf php-7.4.0RC6.tar.gz
-    </code>
+<code class="bash">tar -zxvf php-7.4.0RC6.tar.gz</code>
 </pre>
 
 ### Configure o Pacote
@@ -96,28 +82,22 @@ Extraia o conteúdo do pacote:
 Acesse a pasta criada:
 
 <pre>
-    <code class="bash">
-    cd php-7.4.0RC6
-    </code>
+<code class="bash">cd php-7.4.0RC6</code>
 </pre>
 
 Para configurar o pacote com as opções básicas de desenvolvimento:
 
 <pre>
-    <code class="bash">
-    ./configure \
-        --enable-maintainer-zts \
-        --enable-debug \
-        --enable-cli
-    </code>
+<code class="bash">./configure \
+    --enable-maintainer-zts \
+    --enable-debug \
+    --enable-cli</code>
 </pre>
 
 Se quiser conhecer as muitas opções de configuração disponíveis:
 
 <pre>
-    <code class="bash">
-    ./configure --help
-    </code>
+<code class="bash">./configure --help</code>
 </pre>
 
 ### Compile o Pacote 
@@ -125,17 +105,13 @@ Se quiser conhecer as muitas opções de configuração disponíveis:
 Para compilar o pacote, execute:
 
 <pre>
-    <code class="bash">
-    make
-    </code>
+<code class="bash">make</code>
 </pre>
 
 Se quiser executar (muito) mais rápido:
 
 <pre>
-    <code class="bash">
-    make -j$(nproc)
-    </code>
+<code class="bash">make -j$(nproc)</code>
 </pre>
 
 ### Teste o Pacote
@@ -143,33 +119,25 @@ Se quiser executar (muito) mais rápido:
 Verifique a versão do CLI do PHP que foi gerado:
 
 <pre>
-    <code class="bash">
-    sapi/cli/php --version
-    </code>
+<code class="bash">sapi/cli/php --version</code>
 </pre>
 
 E quais módulos foram instalados:
 
 <pre>
-    <code class="bash">
-    sapi/cli/php -m
-    </code>
+<code class="bash">sapi/cli/php -m</code>
 </pre>
 
 Para rodar os testes, execute:
 
 <pre>
-    <code class="bash">
-    make test
-    </code>
+<code class="bash">make test</code>
 </pre>
 
 Se quiser usar mais unidades de processamento, execute:
 
 <pre>
-    <code class="bash">
-    make TEST_PHP_ARGS=-j$(nproc) test
-    </code>
+<code class="bash">make TEST_PHP_ARGS=-j$(nproc) test</code>
 </pre>
 
 Ao final dos testes, será apresentada uma opção para enviar um relatório com os
