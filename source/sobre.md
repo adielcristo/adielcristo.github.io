@@ -1,8 +1,8 @@
 ---
 layout: default
-title: About
-
+title: Sobre
 ---
+
 # Adiel Cristo
 
 Desenvolvedor de software interessado em tecnologia e programação,
