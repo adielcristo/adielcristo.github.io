@@ -5,9 +5,9 @@ categories: PHP
 language: pt-br
 ---
 
-Então você quer ajudar a comunidade do PHP mas não sabe como? Uma opção é
-testar os pacotes <em>Release Candidate</em> da versão 7.4, que deve sair do
-forno em duas semanas.
+Então você quer ajudar a comunidade PHP mas não sabe como? Uma opção é testar os
+pacotes <em>Release Candidate</em> da versão 7.4, que deve sair do forno em duas
+semanas.
 
 Neste post iremos instalar a versão [php-7.4.0RC6][package-news], lançada na
 última quinta-feira.
