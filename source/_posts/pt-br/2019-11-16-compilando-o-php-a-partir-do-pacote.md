@@ -12,7 +12,7 @@ forno em duas semanas.
 Neste post iremos instalar a versão [php-7.4.0RC6][package-news], lançada na
 última quinta-feira.
 
-### Instale as Dependências:
+### Instale as Dependências
 
 Primeiro instale as dependências necessárias. Algumas podem já estar instaladas:
 
@@ -94,7 +94,7 @@ Se quiser conhecer as muitas opções de configuração disponíveis:
 ./configure --help
 ```
 
-### Compile o pacote 
+### Compile o Pacote 
 
 Para compilar o pacote, execute:
 
