@@ -108,7 +108,7 @@ Para compilar o pacote, execute:
 <code class="bash">make</code>
 </pre>
 
-Se quiser executar (muito) mais rápido:
+Se quiser compilar (muito) mais rápido:
 
 <pre>
 <code class="bash">make -j$(nproc)</code>
@@ -143,9 +143,12 @@ Se quiser usar mais unidades de processamento, execute:
 Ao final dos testes, será apresentada uma opção para enviar um relatório com os
 resultados para o time de qualidade do PHP:
 
-<img src="{{ site.url }}/content/posts/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/qa-report-prompt.png"
-    alt="Imagem do terminal mostrando o resultado da execução dos testes"
-    title="Resultado da execução dos testes" />
+<a href="{{ site.url }}/content/posts/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/qa-report-prompt.png"
+    data-fancybox data-caption="Resultado da execução dos testes">
+    <img src="{{ site.url }}/content/posts/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/thumb-qa-report-prompt.png"
+        alt="Imagem do terminal mostrando o resultado da execução dos testes"
+        title="Resultado da execução dos testes" />
+</a>
 
 Você pode confirmar (opção padrão) e informar seu e-mail em seguida, ou salvar
 os resultados, caso queira enviar depois.
