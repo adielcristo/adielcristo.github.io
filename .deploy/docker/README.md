@@ -12,7 +12,7 @@
 1. Build the base image:
 
     ```
-    docker build -t ${DEV_DOCKER_IMAGE_PHP}:base .deploy/docker/base
+    docker build -t ${DOCKER_IMAGE_PHP_BASE} .deploy/docker/base
     ```
 
 [docker-install]: https://docs.docker.com/install/

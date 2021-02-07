@@ -3,6 +3,8 @@
 .idea
 .bashrc
 .deploy/local/.env
+*.log
+*.bak
 
 .DS_Store
 Thumbs.db

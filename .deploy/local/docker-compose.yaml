@@ -1,23 +1,23 @@
-version: "3.7"
+version: "3.8"
 
 services:
     nginx:
-        image: nginx:alpine
+        image: ${DOCKER_IMAGE_NGINX}
         restart: always
         depends_on:
             - php
         command: >
             /bin/sh -c
-            "envsubst '$$APP_BASE_URL'
+            "envsubst $$APP_BASE_URL
             < /etc/nginx/conf.d/default.conf.template
             > /etc/nginx/conf.d/default.conf
             && nginx -g 'daemon off;'"
         ports:
-            - ${DEV_HOST_PORT_HTTP}:80
-            - ${DEV_HOST_PORT_HTTPS}:443
+            - ${DOCKER_HOST_PORT_HTTP}:80
+            - ${DOCKER_HOST_PORT_HTTPS}:443
         volumes:
             # folders
-            - ../..:/var/www/dev
+            - ../..:/var/www
             # files
             - ./services/nginx/default.conf:/etc/nginx/conf.d/default.conf.template:ro
         env_file:
@@ -27,42 +27,46 @@ services:
             - ../../.env.local
 
     node:
-        image: ${COMPOSE_PROJECT_NAME}_node
+        image: ${DOCKER_IMAGE_NODE_BASE}
         build:
-            context: ./
-            dockerfile: services/node/Dockerfile
+            context: .
+            dockerfile: ../docker/node/base/Dockerfile
+            args:
+                DOCKER_IMAGE_NODE: ${DOCKER_IMAGE_NODE}
+        command: yarn encore dev --watch
         restart: always
-        command: tail -f /dev/null
         volumes:
             # folders
-            - ../..:/usr/src/app
-        working_dir: /usr/src/app
+            - ../..:/var/www
+        working_dir: /var/www
         env_file:
             # docker
             - .env
             # application
             - ../../.env.local
-        user: ${DEV_UID}:${DEV_GID}
+        user: ${DOCKER_HOST_UID}:${DOCKER_HOST_GID}
+
 
     php:
-        image: ${DEV_DOCKER_IMAGE_PHP}:dev
+        image: ${DOCKER_IMAGE_PHP_DEV}
         build:
             context: ""
-            dockerfile: ../docker/dev/Dockerfile
+            dockerfile: ../docker/php/dev/Dockerfile
             args:
-                BASE_IMAGE: ${DEV_DOCKER_IMAGE_PHP}:base
+                DOCKER_IMAGE_PHP_BASE: ${DOCKER_IMAGE_PHP_BASE}
         restart: always
         volumes:
             # folders
-            - ../..:/var/www/dev
-            - ${DEV_COMPOSER_DIR}:/composer
+            - ../..:/var/www
+            - ${DOCKER_HOST_COMPOSER_HOME}:/composer
             # files
-            - ./services/php/php.ini-development:/usr/local/etc/php/php.ini:ro
+            - ./services/php/php-8.0.1-dev.ini:/usr/local/etc/php/php.ini:ro
+            - ./services/php/docker.conf:/usr/local/etc/php-fpm.d/docker.conf:ro
             - ./services/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
-        working_dir: /var/www/dev
+        working_dir: /var/www
         env_file:
             # docker
             - .env
             # application
             - ../../.env.local
-        user: ${DEV_UID}:${DEV_GID}
+        user: ${DOCKER_HOST_UID}:${DOCKER_HOST_GID}
