@@ -60,7 +60,7 @@ services:
             - ../..:/var/www
             - ${DOCKER_HOST_COMPOSER_HOME}:/composer
             # files
-            - ./services/php/php-8.0.1-dev.ini:/usr/local/etc/php/php.ini:ro
+            - ./services/php/php-7.4.14-dev.ini:/usr/local/etc/php/php.ini:ro
             - ./services/php/docker.conf:/usr/local/etc/php-fpm.d/docker.conf:ro
             - ./services/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
         working_dir: /var/www

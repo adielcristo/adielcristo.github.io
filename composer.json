@@ -1,28 +1,32 @@
 {
     "name": "adielcristo/blog",
     "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Adiel Cristo",
-            "email": "adielcristo@gmail.com",
-            "homepage": "https://adielcristo.com"
+            "email": "adiel@adielcristo.com",
+            "homepage": "https://www.adielcristo.com"
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "7.4.14",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "sculpin/sculpin": "^3.0"
+        "sculpin/sculpin": "3.1.0"
     },
     "require-dev": {
-        "behat/behat": "^3.5",
-        "behat/mink": "dev-master",
-        "behat/mink-extension": "^2.3",
-        "behat/mink-goutte-driver": "^1.2",
+        "behat/behat": "3.8.1",
+        "behat/mink": "1.8.1",
+        "behat/mink-extension": "2.3.1",
+        "behat/mink-goutte-driver": "1.2.1",
         "roave/security-advisories": "dev-master"
     },
     "config": {
+        "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
@@ -38,5 +42,8 @@
             "AdielCristo\\Blog\\Tests\\": "tests/",
             "AdielCristo\\Blog\\Tests\\Context\\": "tests/features/bootstrap/"
         }
+    },
+    "scripts": {
+        "test": "php vendor/bin/behat"
     }
 }

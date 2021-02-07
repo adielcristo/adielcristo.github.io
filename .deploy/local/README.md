@@ -132,7 +132,7 @@
 1. Build the assets:
 
     ```
-    yarn encore prod|dev --watch
+    yarn encore dev --watch
     ```
 
 [compose-install]: https://docs.docker.com/compose/install/

@@ -5,7 +5,7 @@ dist: bionic
 sudo: required
 
 php:
-    - '7.3'
+    - '7.4'
 
 branches:
     only:
@@ -51,6 +51,6 @@ deploy:
     skip_cleanup:  true
     github_token:  ${GITHUB_TOKEN}
     local_dir:     output_prod
-    target_branch: master
+    target_branch: main
     on:
         branch: develop
