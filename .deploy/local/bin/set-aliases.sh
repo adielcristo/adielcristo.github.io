@@ -18,4 +18,4 @@ alias symfony="dc \
     exec php symfony $@"
 
 alias yarn="dc \
-    exec node yarn $@"
+    run node yarn $@"

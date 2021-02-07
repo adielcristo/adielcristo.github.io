@@ -33,8 +33,8 @@ services:
             dockerfile: ../docker/node/base/Dockerfile
             args:
                 DOCKER_IMAGE_NODE: ${DOCKER_IMAGE_NODE}
-        command: yarn encore dev --watch
-        restart: always
+        restart: on-failure
+        command: node --version
         volumes:
             # folders
             - ../..:/var/www
@@ -45,7 +45,6 @@ services:
             # application
             - ../../.env.local
         user: ${DOCKER_HOST_UID}:${DOCKER_HOST_GID}
-
 
     php:
         image: ${DOCKER_IMAGE_PHP_DEV}
