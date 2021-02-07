@@ -14,5 +14,8 @@ alias dc="docker-compose \
 alias sculpin="dc \
     exec php vendor/bin/sculpin $@"
 
+alias symfony="dc \
+    exec php symfony $@"
+
 alias yarn="dc \
     exec node yarn $@"

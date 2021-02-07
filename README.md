@@ -1,10 +1,10 @@
-# Adiel Cristo: Blog
+# Adiel Cristo - Blog
 
 ## Requirements
 
-- NGINX 1.16
-- PHP 7.3
-- Sculpin 3.0
+* NGINX 1.19.6
+* PHP 8.0.1
+* Sculpin 3.1.0
 
 ## Development
 
