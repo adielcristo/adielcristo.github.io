@@ -7,6 +7,9 @@ sudo: required
 php:
     - '7.4'
 
+env:
+    - PACKAGE_NODE="15.7.0"
+
 branches:
     only:
         - develop
@@ -16,6 +19,9 @@ cache:
     directories:
         - ${HOME}/.composer/cache/files
         - node_modules
+
+before_install:
+    - nvm install ${PACKAGE_NODE}
 
 install:
     - >
