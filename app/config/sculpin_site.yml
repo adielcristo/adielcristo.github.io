@@ -3,5 +3,7 @@
 # in a template to get the contents of the `title` key.
 title: Adiel Cristo
 
+google_analytics_tracking_id: 'G-MDW88SK823'
+
 disqus:
     shortname: adieldev
