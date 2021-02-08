@@ -64,6 +64,10 @@ after_success:
         yarn install
         --production
     - >
+        yarn add
+        file-loader
+        --dev
+    - >
         yarn encore
         production
     - >
