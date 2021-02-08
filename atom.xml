@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[Adiel Cristo]]></title>
+    <link href="/atom.xml" rel="self"/>
+    <link href="/"/>
+    <updated>2021-02-08T18:15:01+00:00</updated>
+    <id>/</id>
+        <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Compilando o PHP a partir do Pacote]]></title>
+            <link href="/blog/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/"/>
+            <updated>2019-11-16T00:00:00+00:00</updated>
+            <id>/blog/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/</id>
+            <content type="html"><![CDATA[<p>Então você quer ajudar a comunidade PHP mas não sabe como? Uma opção é testar os
+pacotes <em>Release Candidate</em> da versão 7.4, que deve sair do forno em duas
+semanas.</p>
+
+<p>Neste post iremos instalar a versão <a href="https://www.php.net/archive/2019.php#2019-11-14-1">php-7.4.0RC6</a>, lançada na
+última quinta-feira.</p>
+
+<p><em><strong>Nota:</strong> As instruções a seguir foram executadas no ambiente Linux. Ajustes
+podem ser necessários para adaptá-las ao seu ambiente.</em></p>
+
+<h3 id="instale-as-depend%C3%AAncias">Instale as Dependências</h3>
+
+<p>Primeiro instale as dependências necessárias. Algumas podem já estar instaladas:</p>
+
+<pre>
+<code class="bash">sudo apt-get install \
+    autoconf \
+    bison \
+    build-essential \
+    git \
+    libsqlite3-dev \
+    libxml2-dev \
+    pkg-config \
+    re2c</code>
+</pre>
+
+<h3 id="baixe-o-pacote-da-vers%C3%A3o">Baixe o Pacote da Versão</h3>
+
+<p>Você pode baixar o pacote diretamente:</p>
+
+<pre>
+<code class="bash">curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz \
+    -o php-7.4.0RC6.tar.gz</code>
+</pre>
+
+<h3 id="verifique-a-integridade-do-pacote">Verifique a Integridade do Pacote</h3>
+
+<p>Se quiser verificar a integridade do pacote você pode baixar as chaves GPG dos
+mantenedores dos pacotes do PHP <a href="https://www.php.net/gpg-keys.php">nesta página</a>:</p>
+
+<pre>
+<code class="bash">curl https://www.php.net/distributions/php-keyring.gpg \
+    -o php-keyring.gpg</code>
+</pre>
+
+<p>Para importar as chaves, execute:</p>
+
+<pre>
+<code class="bash">gpg --import php-keyring.gpg</code>
+</pre>
+
+<p>Baixe também o arquivo ASC, usado para checar a integridade do pacote:</p>
+
+<pre>
+<code class="bash">curl https://downloads.php.net/~derick/php-7.4.0RC6.tar.gz.asc \
+    -o php-7.4.0RC6.tar.gz.asc</code>
+</pre>
+
+<p>E finalmente, para verificar a integridade do pacote:</p>
+
+<pre>
+<code class="bash">gpg --verify php-7.4.0RC6.tar.gz.asc php-7.4.0RC6.tar.gz</code>
+</pre>
+
+<h3 id="extraia-o-pacote">Extraia o Pacote</h3>
+
+<p>Extraia o conteúdo do pacote:</p>
+
+<pre>
+<code class="bash">tar -zxvf php-7.4.0RC6.tar.gz</code>
+</pre>
+
+<h3 id="configure-o-pacote">Configure o Pacote</h3>
+
+<p>Acesse a pasta criada:</p>
+
+<pre>
+<code class="bash">cd php-7.4.0RC6</code>
+</pre>
+
+<p>Para configurar o pacote com as opções básicas de desenvolvimento:</p>
+
+<pre>
+<code class="bash">./configure \
+    --enable-maintainer-zts \
+    --enable-debug \
+    --enable-cli</code>
+</pre>
+
+<p>Se quiser conhecer as muitas opções de configuração disponíveis:</p>
+
+<pre>
+<code class="bash">./configure --help</code>
+</pre>
+
+<h3 id="compile-o-pacote">Compile o Pacote</h3>
+
+<p>Para compilar o pacote, execute:</p>
+
+<pre>
+<code class="bash">make</code>
+</pre>
+
+<p>Se quiser compilar (muito) mais rápido:</p>
+
+<pre>
+<code class="bash">make -j$(nproc)</code>
+</pre>
+
+<h3 id="teste-o-pacote">Teste o Pacote</h3>
+
+<p>Verifique a versão do CLI do PHP que foi gerado:</p>
+
+<pre>
+<code class="bash">sapi/cli/php --version</code>
+</pre>
+
+<p>E quais módulos foram instalados:</p>
+
+<pre>
+<code class="bash">sapi/cli/php -m</code>
+</pre>
+
+<p>Para rodar os testes, execute:</p>
+
+<pre>
+<code class="bash">make test</code>
+</pre>
+
+<p>Se quiser usar mais unidades de processamento, execute:</p>
+
+<pre>
+<code class="bash">make TEST_PHP_ARGS=-j$(nproc) test</code>
+</pre>
+
+<p>Ao final dos testes, será apresentada uma opção para enviar um relatório com os
+resultados para o time de qualidade do PHP:</p>
+
+<p><a href="/content/posts/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/qa-report-prompt.png"
+    data-fancybox data-caption="Resultado da execução dos testes">
+    <img src="/content/posts/pt-br/2019/11/compilando-o-php-a-partir-do-pacote/thumb-qa-report-prompt.png"
+        alt="Imagem do terminal mostrando o resultado da execução dos testes"
+        title="Resultado da execução dos testes" />
+</a></p>
+
+<p>Você pode confirmar (opção padrão) e informar seu e-mail em seguida, ou salvar
+os resultados, caso queira enviar depois.</p>
+
+<p>Por enquanto é isso. Bons testes e até a próxima!</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[Ressuscitando o Blog!]]></title>
+            <link href="/blog/pt-br/2019/09/ressuscitando-o-blog/"/>
+            <updated>2019-09-21T00:00:00+00:00</updated>
+            <id>/blog/pt-br/2019/09/ressuscitando-o-blog/</id>
+            <content type="html"><![CDATA[<p>Depois de <del>alguns</del> muitos anos, finalmente vou tirar a poeira do blog
+(de novo). E para começar, nos próximos posts irei mostrar os passos iniciais
+para montar o ambiente de desenvolvimento do source do PHP.</p>
+
+<p>Isso mesmo! Iremos preparar o ambiente para testar as versões do PHP saindo
+direto do forno, e a partir daí poderemos aprender como o PHP funciona
+internamente, além de fazer nossas próprias modificações e contribuir com o
+desenvolvimento da linguagem.</p>
+
+<p>Até lá!</p>
+]]></content>
+        </entry>
+    </feed>
